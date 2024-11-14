@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { ModalController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-mahasiswa',
@@ -10,7 +11,11 @@ import { ModalController } from '@ionic/angular';
 export class MahasiswaPage implements OnInit {
   dataMahasiswa: any;
 
-  constructor(private api: ApiService, private modal: ModalController) {}
+  constructor(
+    private api: ApiService,
+    private modal: ModalController,
+    private alertController: AlertController
+  ) {}
 
   ngOnInit() {
     this.getMahasiswa();
@@ -76,18 +81,53 @@ export class MahasiswaPage implements OnInit {
     }
   }
 
-  hapusMahasiswa(id: any) {
-    this.api.hapus(id, 'hapus.php?id=').subscribe({
-      next: (res: any) => {
-        console.log('sukses', res);
-        this.getMahasiswa();
-        console.log('berhasil hapus data');
-      },
-      error: (error: any) => {
-        console.log('gagal');
-      },
+  async hapusMahasiswa(id: any) {
+    const alert = await this.alertController.create({
+      header: 'Konfirmasi Hapus',
+      subHeader: 'Anda yakin ingin menghapus?',
+      message: 'Data mahasiswa ini akan dihapus secara permanen.',
+      buttons: [
+        {
+          text: 'Batal',
+          role: 'cancel',
+          handler: () => {
+            console.log('User canceled the alert');
+          },
+        },
+        {
+          text: 'Hapus',
+          role: 'destructive',
+          handler: () => {
+            this.api.hapus(id, 'hapus.php?id=').subscribe({
+              next: (res: any) => {
+                console.log('sukses', res);
+                this.getMahasiswa();
+                console.log('berhasil hapus data');
+              },
+              error: (error: any) => {
+                console.log('gagal');
+              },
+            });
+          },
+        },
+      ],
     });
+
+    await alert.present();
   }
+
+  // hapusMahasiswa(id: any) {
+  //   this.api.hapus(id, 'hapus.php?id=').subscribe({
+  //     next: (res: any) => {
+  //       console.log('sukses', res);
+  //       this.getMahasiswa();
+  //       console.log('berhasil hapus data');
+  //     },
+  //     error: (error: any) => {
+  //       console.log('gagal');
+  //     },
+  //   });
+  // }
 
   ambilMahasiswa(id: any) {
     this.api.lihat(id, 'lihat.php?id=').subscribe({
