@@ -6,7 +6,9 @@ Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunaka
 
 ### 1. Create
 
+<div style="text-align:center">
  <img src="readme-img/R.png" style="width: 200px; display:block; margin-left:auto; margin-right:auto">
+</div>
 
 - Pengguna mengisi formulir yang terdiri dari data yang diperlukan (`nama` dan `jurusan`).
 - Fungsi `tambahMahasiswa()` memeriksa apakah semua field diisi. Jika ya, data dikirimkan ke API menggunakan `this.api.tambah()` dengan endpoint `tambah.php`.
@@ -14,7 +16,7 @@ Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunaka
 
 ### 2. Read
 
-<div style="display: flex; justify-content:center; align-items:center">
+<div style="text-align:center">
     <img src="readme-img/C1.png" style="width: 200px; margin:10px" />
     <img src="readme-img/C2.png" style="width: 200px; margin:10px" />
     <img src="readme-img/C3.png" style="width: 200px; margin:10px" />
@@ -25,7 +27,7 @@ Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunaka
 
 ### 3. Update
 
-<div style="display: flex; justify-content:center; align-items:center">
+<div style="text-align:center">
     <img src="readme-img/U1.png" style="width: 200px; margin:10px" />
     <img src="readme-img/U2.png" style="width: 200px; margin:10px" />
     <img src="readme-img/U3.png" style="width: 200px; margin:10px" />
@@ -38,7 +40,7 @@ Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunaka
 
 ### 4. Delete
 
-<div style="display: flex; justify-content:center; align-items:center">
+<div style="text-align:center">
     <img src="readme-img/D1.png" style="width: 200px; margin:10px" />
     <img src="readme-img/D2.png" style="width: 200px; margin:10px" />
 </div>
