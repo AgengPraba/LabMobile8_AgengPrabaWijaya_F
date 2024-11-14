@@ -1,4 +1,4 @@
-# Fitur Login pada Ionic
+# Fitur CRUD pada Ionic
 
 Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunakan ionic.
 
@@ -6,24 +6,43 @@ Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunaka
 
 ### 1. Create
 
- <img src="readme-img/R.png" style="width: 200px">
-- Di backend, database menyimpan data pengguna seperti `username` dan `password`.
-- Saat pengguna mencoba login, aplikasi Ionic mengirimkan data ini ke server untuk diverifikasi. Jika cocok dengan data di database, server akan mengembalikan `token` sebagai tanda bahwa login berhasil.
+ <img src="readme-img/R.png" style="width: 200px; display:block; margin-left:auto; margin-right:auto">
+
+- Pengguna mengisi formulir yang terdiri dari data yang diperlukan (`nama` dan `jurusan`).
+- Fungsi `tambahMahasiswa()` memeriksa apakah semua field diisi. Jika ya, data dikirimkan ke API menggunakan `this.api.tambah()` dengan endpoint `tambah.php`.
+- Setelah berhasil menambahkan data, modal ditutup dan data mahasiswa terbaru diambil menggunakan `getMahasiswa()` untuk memperbarui daftar mahasiswa di tampilan.
 
 ### 2. Read
 
-- PHP menangani permintaan login dari aplikasi Ionic melalui endpoint (`login.php`).
-- Setelah menerima `username` dan `password`, PHP memvalidasi data terhadap database. Jika valid, PHP mengembalikan respons berisi `status_login` dengan nilai "berhasil" dan `token` untuk autentikasi selanjutnya.
-- Jika tidak valid, PHP mengirimkan respons `status_login` "gagal" untuk memberi tahu aplikasi Ionic.
+<div style="display: flex; justify-content:center; align-items:center">
+    <img src="readme-img/C1.png" style="width: 200px; margin:10px" />
+    <img src="readme-img/C2.png" style="width: 200px; margin:10px" />
+    <img src="readme-img/C3.png" style="width: 200px; margin:10px" />
+</div>
+
+- Ketika halaman dimuat `ngOnInit()`, fungsi `getMahasiswa()` dipanggil untuk mengambil seluruh data mahasiswa dari API dengan endpoint `tampil.php`.
+- Data yang diterima disimpan di dalam `dataMahasiswa`, kemudian ditampilkan di halaman untuk dilihat oleh pengguna.
 
 ### 3. Update
 
-- Pengguna memasukkan `username` dan `password` pada halaman login.
-- Ketika tombol login ditekan, aplikasi memanggil metode `postMethod` pada `AuthenticationService` yang mengirim data login ke server (PHP).
-- Jika login berhasil (dengan `status_login` "berhasil"), `token` disimpan dalam aplikasi menggunakan `Capacitor - Preferences`, dan pengguna diarahkan ke halaman `home`.
-- Jika login gagal, aplikasi menampilkan pesan kesalahan menggunakan `AlertController`.
+<div style="display: flex; justify-content:center; align-items:center">
+    <img src="readme-img/U1.png" style="width: 200px; margin:10px" />
+    <img src="readme-img/U2.png" style="width: 200px; margin:10px" />
+    <img src="readme-img/U3.png" style="width: 200px; margin:10px" />
+</div>
+
+- Pengguna membuka modal edit dengan memilih mahasiswa tertentu yang ingin diedit, menggunakan `openModalEdit()`.
+- Fungsi `ambilMahasiswa(id)` memuat data mahasiswa yang dipilih dari API `lihat.php?id=` dan mengisinya ke dalam formulir.
+- Setelah data diedit dan disimpan, `editMahasiswa()` memanggil API `edit.php` untuk memperbarui data.
+- Jika pembaruan berhasil, modal ditutup, data mahasiswa terbaru diambil kembali dengan `getMahasiswa()` untuk memperbarui daftar.
 
 ### 4. Delete
 
-- `AuthGuard` memastikan hanya pengguna yang sudah login yang bisa mengakses halaman `home`.
-- `AutoLoginGuard` mengarahkan pengguna yang sudah login langsung ke `home` tanpa harus login ulang setiap kali membuka aplikasi.
+<div style="display: flex; justify-content:center; align-items:center">
+    <img src="readme-img/D1.png" style="width: 200px; margin:10px" />
+    <img src="readme-img/D2.png" style="width: 200px; margin:10px" />
+</div>
+
+- Pengguna memilih opsi hapus, lalu fungsi `hapusMahasiswa(id)` memunculkan alert konfirmasi.
+- Jika pengguna mengonfirmasi penghapusan, API `hapus.php?id=` dipanggil untuk menghapus data mahasiswa.
+- Setelah penghapusan berhasil, `getMahasiswa()` dipanggil kembali untuk menyegarkan daftar mahasiswa di tampilan.
