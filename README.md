@@ -6,9 +6,9 @@ Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunaka
 
 ### 1. Create
 
-<div style="text-align:center">
+<p align="center">
  <img src="readme-img/R.png" style="width: 200px; display:block; margin-left:auto; margin-right:auto">
-</div>
+</p>
 
 - Pengguna mengisi formulir yang terdiri dari data yang diperlukan (`nama` dan `jurusan`).
 - Fungsi `tambahMahasiswa()` memeriksa apakah semua field diisi. Jika ya, data dikirimkan ke API menggunakan `this.api.tambah()` dengan endpoint `tambah.php`.
