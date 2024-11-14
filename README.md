@@ -16,22 +16,22 @@ Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunaka
 
 ### 2. Read
 
-<div style="text-align:center">
+<p align="center">
     <img src="readme-img/C1.png" style="width: 200px; margin:10px" />
     <img src="readme-img/C2.png" style="width: 200px; margin:10px" />
     <img src="readme-img/C3.png" style="width: 200px; margin:10px" />
-</div>
+</p>
 
 - Ketika halaman dimuat `ngOnInit()`, fungsi `getMahasiswa()` dipanggil untuk mengambil seluruh data mahasiswa dari API dengan endpoint `tampil.php`.
 - Data yang diterima disimpan di dalam `dataMahasiswa`, kemudian ditampilkan di halaman untuk dilihat oleh pengguna.
 
 ### 3. Update
 
-<div style="text-align:center">
+<p align="center">
     <img src="readme-img/U1.png" style="width: 200px; margin:10px" />
     <img src="readme-img/U2.png" style="width: 200px; margin:10px" />
     <img src="readme-img/U3.png" style="width: 200px; margin:10px" />
-</div>
+</p>
 
 - Pengguna membuka modal edit dengan memilih mahasiswa tertentu yang ingin diedit, menggunakan `openModalEdit()`.
 - Fungsi `ambilMahasiswa(id)` memuat data mahasiswa yang dipilih dari API `lihat.php?id=` dan mengisinya ke dalam formulir.
@@ -40,10 +40,10 @@ Tugas pertemuan 8 praktikum pemrograman mobile membuat CRUD Mahasiswa menggunaka
 
 ### 4. Delete
 
-<div style="text-align:center">
+<p align="center">
     <img src="readme-img/D1.png" style="width: 200px; margin:10px" />
     <img src="readme-img/D2.png" style="width: 200px; margin:10px" />
-</div>
+</p>
 
 - Pengguna memilih opsi hapus, lalu fungsi `hapusMahasiswa(id)` memunculkan alert konfirmasi.
 - Jika pengguna mengonfirmasi penghapusan, API `hapus.php?id=` dipanggil untuk menghapus data mahasiswa.
